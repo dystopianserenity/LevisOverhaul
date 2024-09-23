@@ -17,21 +17,21 @@
     
     
     :root {
-		--mainBG: #fff; 					/* MAIN BACKGROUND COLOR */
+		--mainBG: #fff; 				/* MAIN BACKGROUND COLOR */
 		--secondaryBG: #f0f0f0; 			/* SECONDARY BG COLOR FOR PANELS */
-        --tertiaryBG: #dddddd; 				/* THIRD BACKGROUND COLOR FOR PANELS AND BUTTONS IN PANELS */
+	        --tertiaryBG: #dddddd; 				/* THIRD BACKGROUND COLOR FOR PANELS AND BUTTONS IN PANELS */
 		--primaryAccent: #c00418; 			/* MAIN COLOR ACCENT */
-		--secondaryAccent: #2f3d45; 		/* USED FOR SOME COLORS */
+		--secondaryAccent: #2f3d45; 			/* USED FOR SOME COLORS */
 		--accentText: #fff; 				/* TEXT ON PRIMARY ACCENT COLORED BACKGROUND*/
-		--mainText: #000; 					/* MAIN TEXT ON BACKGROUND COLORS */
-		--eventText: #000; 					/* TIMETABLE TEXT */
+		--mainText: #000; 				/* MAIN TEXT ON BACKGROUND COLORS */
+		--eventText: #000; 				/* TIMETABLE TEXT */
 		--lowContrastText: #888;			/* USED FOR LOWER CONTRAST TEXT SITUATIONS */
 
 
 
 
         
-        --iconFilter: hue-rotate(0deg) brightness(100%) contrast(100%);             /* ADAPT THIS TO MATCH YOUR PRIMARY ACCENT - DEFAULT IS RED */
+        --iconFilter: hue-rotate(0deg) brightness(100%) contrast(100%);             						/* ADAPT THIS TO MATCH YOUR PRIMARY ACCENT - DEFAULT IS RED */
 		--iconDefault: brightness(00%) !important; 									/* SYMBOLS LIKE ARROWS - DEFAULT IS 0 PERCENT*/
 		--iconHover: brightness(100%) !important;									/* SYMBOLS LIKE ARROWS - DEFAULT IS 100 PERCENT*/
 		/* TIP: IF YOUR BG COLORS ARE DARK, SET ICONDEFAULT TO 100% AND IF YOUR PRIMARY ACCENT IS BRIGHT, SET ICONHOVER TO 0% */
