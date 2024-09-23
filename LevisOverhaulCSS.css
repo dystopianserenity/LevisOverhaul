@@ -1,0 +1,1474 @@
+/* ==UserStyle==
+@name           levis.fh-ooe.at - Feb 2024
+@namespace      github.com/openstyles/stylus
+@version        1.1.0
+@description    LEVIS Overhaul Project
+@author         Jana Greiter / dystopian serenity
+==/UserStyle== */
+@-moz-document domain("levis.fh-ooe.at") {
+	
+    
+    
+    
+    /* ||| CUSTOMIZE HERE  ||| */
+    
+    
+    
+    
+    
+    :root {
+		--mainBG: #fff; 					/* MAIN BACKGROUND COLOR */
+		--secondaryBG: #f0f0f0; 			/* SECONDARY BG COLOR FOR PANELS */
+        --tertiaryBG: #dddddd; 				/* THIRD BACKGROUND COLOR FOR PANELS AND BUTTONS IN PANELS */
+		--primaryAccent: #c00418; 			/* MAIN COLOR ACCENT */
+		--secondaryAccent: #2f3d45; 		/* USED FOR SOME COLORS */
+		--accentText: #fff; 				/* TEXT ON PRIMARY ACCENT COLORED BACKGROUND*/
+		--mainText: #000; 					/* MAIN TEXT ON BACKGROUND COLORS */
+		--eventText: #000; 					/* TIMETABLE TEXT */
+		--lowContrastText: #888;			/* USED FOR LOWER CONTRAST TEXT SITUATIONS */
+
+
+
+
+        
+        --iconFilter: hue-rotate(0deg) brightness(100%) contrast(100%);             /* ADAPT THIS TO MATCH YOUR PRIMARY ACCENT - DEFAULT IS RED */
+		--iconDefault: brightness(00%) !important; 									/* SYMBOLS LIKE ARROWS - DEFAULT IS 0 PERCENT*/
+		--iconHover: brightness(100%) !important;									/* SYMBOLS LIKE ARROWS - DEFAULT IS 100 PERCENT*/
+		/* TIP: IF YOUR BG COLORS ARE DARK, SET ICONDEFAULT TO 100% AND IF YOUR PRIMARY ACCENT IS BRIGHT, SET ICONHOVER TO 0% */
+		
+		--backgroundImage: url(https://dystopianserenity.github.io/LevisOverhaul/worldmapremastered6.png) no-repeat scroll center top #3e505a;	
+	}
+	
+	/* REMOVE THE COMMENT SIGNS BELOW TO ENABLE COLORING OF TIME CELLS IN THE TIMETABLE - THIS REMOVES SPECIAL EVENT COLORS THO!!! */
+	/*
+	.dxscAppointment {
+		background-color: var(--tertiaryBG) !important;
+	}
+    */
+    
+	/* IF YOU WANT TO CHANGE A SPECIFIC ELEMENT'S COLOR, YOU CAN SEARCH THROUGH THE CSS SHEET BY THE VARIABLE IT CURRENTLY HAS (E.G. PRIMARYACCENT) USING CTRL F AND CHANGE IT TO WHATEVER YOU LIKE WHEN FOUND*/
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    /*  ||| REST OF THE CODE |||  */
+    
+    
+    /* General UI */
+	body {
+		background: var(--backgroundImage);
+		line-height: 20px
+	}
+	
+	#header {
+		background: var(--mainBG);
+		border-radius: 10px 10px 0px 0px;
+	}
+	
+	#menu {
+		background: var(--mainBG);
+	}
+	
+	#main {
+		background: var(--mainBG);
+        color: var(--mainText);
+	}
+	
+	#footer {
+		background: var(--secondaryAccent);
+		border-radius: 0px 0px 10px 10px;
+		width: 950px;
+	}
+	
+	p, label, h1, h2 {
+		font-family: "Segoe UI", Tahoma, sans-serif;
+		color: var(--mainText);
+	}
+	
+	h1 {
+		color: var(--lowContrastText);
+	}
+	
+	h2 {
+		font-weight: bold;
+		color: var(--primaryAccent);
+	}
+	
+	h3 {
+		font-weight: bold;
+		color: var(--primaryAccent)
+	}
+	
+	a {
+		color: var(--mainText);
+	}
+	
+	img {
+		border-radius: 10px;
+		border-width: 0px !important;
+		opacity: 100% !important;
+	}
+	
+	input {
+		border-block: none;
+	  	border: 2px solid var(--tertiaryBG);
+	  	border-radius: 4px;
+	  	outline: none;
+	}
+	
+	input:focus-visible {
+  		border-color: var(--primaryAccent);
+	}
+	
+	
+	/* buttons */
+	
+    .ui-state-default {
+        color: #002a43;
+        border: 0px solid var(--primaryAccent);
+        /*border-radius: 7px;*/
+      	background: none;
+        background-color: #fff;
+        padding: 4px 10px;
+    }
+	
+    
+    
+     .ui-state-active, .ui-state-default:hover{
+        color: var(--accentText);
+        border: 0px solid var(--primaryAccent);
+        /*border-radius: 7px;*/
+        background: none;
+        background-color: var(--primaryAccent);
+        
+    }
+    .ui-corner-right {
+        border-bottom-right-radius: 7px;
+        border-top-right-radius: 7px;
+        
+    }
+    
+    .ui-corner-left {
+        border-bottom-left-radius: 7px;
+        border-top-left-radius: 7px;
+    }   
+    
+    .smallPaddingBottom {
+        padding-bottom: 10px !important;
+		color: var(--mainText);
+    }
+	
+	/*.smallPaddingLeft {
+		padding-left: 10px !important;
+	}
+	*/
+	
+	h2 {
+		border-bottom: 3px solid var(--secondaryBG);
+	}
+	
+	.ui-corner-bl {
+	  	border-bottom-left-radius: 0px;
+	}
+	
+	/*Menu Bar*/
+    
+    .menuBack{
+        background: #c0041800;
+        /*border-radius: 10px 10px 0px 0px;
+    	overflow: hidden;*/
+    }
+	
+    
+    #menu .inlineBlock{
+        border-radius: 0px 0px 10px 10px;
+        padding: 10px;
+        background-color: var(--secondaryBG) !important;
+    }
+    
+	#menu ul.AspNet-Menu li {
+		background: #0000;
+		height:auto !important;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	 
+	#menu ul.AspNet-Menu li a{
+		color: var(--accentText);
+		background: var(--primaryAccent);
+		padding: 10px 15px 10px;
+		z-index: 5;
+		position: relative;
+	}	
+	
+	#menu ul.AspNet-Menu li:first-Child a{
+		background: var(--primaryAccent);
+		border-radius: 10px 0 0 0;
+	}
+	
+	#menu ul.AspNet-Menu li a:hover {
+	  	text-decoration: none;
+		color: var(--primaryAccent);
+		background-color: var(--secondaryBG);
+	}
+    
+	#ctl00_ctl00_ctl00_MainMenu_InfoMenu .AspNet-Menu-Link, #ctl00_ctl00_MainMenu_InfoMenu .AspNet-Menu-Link {
+		border-radius: 0px 10px 0 0 !important;
+	}
+	
+	#ctl00_ctl00_ctl00_MainMenu_InfoMenu .AspNet-Menu-Leaf::before, #ctl00_ctl00_MainMenu_InfoMenu .AspNet-Menu-Leaf::before {
+		content: "";
+  		position: absolute;
+		background: var(--primaryAccent);
+		width: 800px;
+		height: 40px;
+		right: 84px;
+		top: 0;
+		display: block;
+		z-index: 1;
+	}
+	
+    .inlineBlock div.right {
+        float: right;
+    }
+    
+    .inlineBlock div.smallPaddingLeft {
+        width: 500px !important;
+    }
+    
+   /* .smallPaddingLeft{
+        width: 830px !important;
+    }
+   */ 
+    #menu{
+        height: 100px !important;
+    }
+    
+    .border-top{
+        border-top: 0px
+    }
+    
+    #ctl00_ctl00_MainArea_MainArea_lblWelcome{
+        color: var(--primaryAccent) !important;
+        font-size: 18px !important;
+        font-weight: bold !important;
+		margin-left: -20px;
+    }
+    
+    .featureButton{
+        border:0px;
+        background-image: none;
+        background-color: var(--tertiaryBG);
+        color: var(--mainText);
+        padding: 10px;
+    }
+    
+    .featureButton:hover {
+        border:0px;
+        background-image: none;
+        background-color:var(--primaryAccent) !important;
+        color: var(--accentText) !important;
+    }
+    
+    span.right {
+        background-image: url(https://dystopianserenity.github.io/LevisOverhaul/questionmark.png) !important;
+		background-size: 16px;
+        filter: var(--iconFilter)
+    }
+    
+    header .logo h1, #header .logo h2 {
+        color: var(--primaryAccent) !important;
+    }
+    
+    .notice {
+        background: var(--secondaryBG);
+        color: #4d4d4d;
+        border-color: var(--primaryAccent);
+        border:0px solid;
+        border-radius:10px;
+        padding:15px;
+    }
+    
+    b {
+        color:var(--primaryAccent);
+    }
+    
+    #menu span.SiteMapNode{
+        color: var(--primaryAccent);
+        text-decoration: underline;
+;
+    }
+	
+	#header .lang {
+		color: var(--lowContrastText)
+	}
+	
+    #header .lang:hover {
+        color: var(--primaryAccent);
+    }
+	
+	#menu span a.SiteMapNode[href] {
+  		color: var(--mainText);
+	}
+	
+	#menu span a.SiteMapNode[href]:hover {
+		color: var(--primaryAccent);
+	}
+    
+	/*UK Flag*/
+	/*
+	input[type="image"].centerImage {
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	
+	
+	input[type="image"]:before {
+		background-image: url(https://media.discordapp.net/attachments/1197686575623061605/1199362136808358009/uk-flag.png?ex=65c24408&is=65afcf08&hm=bd4af39ae7721a3cd77c17e671b18b9af43d0607bcf039c51c1187281f4ca391&=&format=webp&quality=lossless&width=1526&height=1001);
+		background-size: 16px;
+		background-repeat: no-repeat;
+		background-position: center;
+		
+		content: "testing";
+		position: absolute;
+		top: 0;
+		left: 0;	
+		width: 100%;
+		height: 100%;	
+	}
+	*/
+	
+    
+    /*Sidebbar Navigation*/
+    
+    #submenu{
+        border-radius: 10px;
+        background:var(--secondaryBG);
+        overflow: hidden;
+        width: 22%;
+    }
+    
+    #submenu ul, #submenu a {
+        background: none;
+        border-bottom: 0px;
+        border-top:0px;
+		color: var(--mainText)
+    }
+    
+    #submenu a {
+        padding: 10px 30px 10px 15px;
+    }
+    
+    #submenu ul ul a {
+        padding-left: 40px;
+    }
+    
+    #submenu a.active{
+        /*background: var(--primaryAccent) url(../images/common/menu_hover_arrow.gif) no-repeat scroll right top;*/
+        background: var(--primaryAccent) url(https://dystopianserenity.github.io/LevisOverhaul/arrow-right.png) no-repeat 97%;
+        background-size: 20px 20px;
+        border-bottom: 0px dotted #ACACAC;
+        color: var(--accentText);
+        font-weight: bold;
+    }
+    
+    #submenu a.activeSub {
+        border-bottom: 0px solid #222;
+        background-color: var(--secondaryBG);
+        color: var(--mainText);
+        font-weight: bold;
+    }
+        
+    #submenu ul a:hover, #submenu ul ul a:hover {
+        color: var(--accentText);
+        background-color: var(--primaryAccent);
+        
+    }
+    
+    #contentright{
+        width: 721px;
+    }
+    
+    
+    
+    /*Timetable*/
+	
+			/*date selector*/
+
+	.dxscControl {
+		background: var(--secondaryBG);
+	}  
+    
+    
+	
+	.dxscToolbar {
+		padding: 10px;
+	}
+	
+	.dxscToolbarContainer {
+		border: none;
+	}
+    
+    .dxscAlternateDateHeader {
+        background: var(--primaryAccent);
+        color: var(--accentText);
+    }
+	
+	.opaque {
+		opacity: 1;
+	}
+	
+	#scheduler {
+		border-collapse:separate !important;
+		border-radius: 10px;
+		border-color: transparent;
+		overflow:hidden;
+	}
+	
+	.dxscToolbar {
+		background: none;
+	}
+	
+	/*#scheduler_viewSelectorBlock_ctl00_ctl23_B{
+		background: none;
+	}*/
+	
+	#scheduler_viewNavigatorBlock_ctl00_BG_ctl03_B {
+		border-radius: 4px 0px 0px 4px;
+	}
+	
+	#scheduler_viewNavigatorBlock_ctl00_BG_GTDBI_B {
+		border-radius: 0px 4px 4px 0px;
+		border-left: 1px solid var(--secondaryBG) !important;
+	}
+	
+	#scheduler_viewNavigatorBlock_ctl00_BG_ctl03_CD {
+		color: var(--mainText);
+	}
+	
+	.dxscViewNavigatorButton, .dxscViewNavigatorGotoDateButton {
+		border: none;
+		border-radius: 4px;
+		font: inherit;
+		background: var(--tertiaryBG);
+		height: 40px;
+  		padding: 0px 14px;
+		
+	}
+	
+	
+	
+	.dxScheduler_ViewNavigator_Down {
+		width:auto;
+		height: 12px;
+	}
+	
+	.dxscViewNavigatorButton:hover, .dxscViewNavigatorGotoDateButton:hover {
+		background: var(--primaryAccent);
+		color: var(--accentText);
+	}
+	
+	.dxscViewNavigatorButton:hover *, .dxscViewNavigatorGotoDateButton:hover * {
+		filter: var(--iconHover) !important;
+		color: var(--accentText);
+	}
+	
+	.dxScheduler_ViewNavigator_Backward, .dxScheduler_ViewNavigator_Forward {
+		width: auto;
+		height: 12px;
+		filter: var(--iconDefault);
+	}
+	
+	.dxScheduler_ViewNavigator_Backward {
+		transform:scaleX(-1);
+	}
+	
+	#scheduler_viewNavigatorBlock_ctl00_ctl12_BImg, #scheduler_viewNavigatorBlock_ctl00_ctl15_BImg {
+		background: url(https://dystopianserenity.github.io/LevisOverhaul/simple-arrow-right.png) no-repeat center;
+		background-size: 20px
+	}
+	
+	#scheduler_viewNavigatorBlock_ctl00_BG_GTDBI_BImg {
+		background: url(https://dystopianserenity.github.io/LevisOverhaul/simple-arrow-down.png) no-repeat center;
+		background-size: 20px;
+		filter: var(--iconDefault);
+	}
+	
+	.dxscViewVisibleInterval {
+		font: inherit;
+		font-weight: bold;
+		white-space: normal;
+		color: var(--mainText)
+	}
+	
+    
+			/*view selector*/
+	
+	
+	#scheduler_viewSelectorBlock_ctl00 {
+		border-radius: 4px;
+		background: var(--tertiaryBG);
+		margin-right: 10px;
+		overflow: hidden;
+		
+	}
+	
+	.dxscViewSelectorButton {
+		background: none;
+		border: none;
+		font: inherit;
+	}
+	
+	.dxscViewSelectorButtonChecked, .dxscViewSelectorButton:hover, #scheduler_viewSelectorBlock_ctl00_ctl23_B:hover {
+		background: var(--primaryAccent);
+		color: var(--accentText);
+		border-radius: 0;
+	}
+	
+	.dxscViewSelectorButtonChecked {
+		font-weight: bold;
+	}
+	
+			/*week day header*/
+	.dxscTimelineDateHeader {
+		color: var(--mainText);
+		background-color: var(--secondaryBG);
+	}
+	
+	.dxscDateHeader {
+		color: var(--mainText);
+		background: var(--tertiaryBG);
+		font: inherit;
+	    border-width: 0;
+		padding: 8px;
+		
+	}
+	
+	.dxscAlternateDateHeader {
+		color: var(--primaryAccent);
+		font-weight: bold;
+	}
+	
+	.dxscAllDayArea, .dxscLeftTopCorner {
+		border: none;
+		background: var(--secondaryBG);
+	}
+	
+	/*.dxscDayHdrsTbl tbody tr*/ .dxscDateHeader:nth-child(2) {
+		  border-radius: 4px 0 0 4px;
+	} 
+	
+			/*time slots*/
+	
+	.dxscTimeRulerHoursItem, .dxscTimeRulerMinuteItem {
+		background: none !important;
+		color: var(--lowContrastText);
+		border-color: var(--tertiaryBG);
+		
+	}
+	
+	.dxscDayHdrsTbl tbody tr .dxscTimeRulerMinuteItem {
+		border: none;
+	}
+	
+	
+			/*time cells*/
+	
+	.dxscTimeCellBody {
+        /*background-color: var(--secondaryBG) !important;*/
+		background: none !important;
+        border-color: var(--tertiaryBG) !important;
+        border: dashed 1px;
+    }
+	
+	.dxscAppointment {
+		overflow: hidden;
+		/*border: solid 1px var(--secondaryAccent); */
+		border: none;
+		border-radius: 0px;
+		font-size: 0px;
+		width: 100% !important;
+	} 
+	
+	.dxscAppointment table tbody tr td table tbody tr td table tbody tr td {
+		font-size: 12px;
+	}
+	
+	
+	.dxscAppointmentInnerBorders {
+		background: var(--secondaryAccent) !important;
+		position:inherit !important;
+	}
+	
+	.dxscAptSelDiv {
+		margin-left: 3px;
+  		margin-top: 1px;
+		border: solid 1px var(--primaryAccent);
+		border-left-width: 6px;
+		box-sizing: border-box;
+		/*background-color: var(--primaryAccent);*/
+		opacity: 100%;
+		z-index: 5!important;
+		border-radius: 4px;
+		pointer-events: none;
+	}
+	
+	
+	.dxscApt {
+		border: solid 1px var(--secondaryAccent);
+  		border-radius: 4px;
+	}
+	
+	.dxeMemo {
+		border-radius: 4px;
+		overflow: hidden;
+	}
+	
+	.dxeBase {
+		font-family:  "Segoe UI", Tahoma, sans-serif !important;
+		color: var(--eventText);
+	}
+	
+	.dxscSel {
+		background-color: var(--primaryAccent);
+		opacity: 40%;
+		border-radius: 4px;
+	}
+	
+	#scheduler_aptsBlock_WorkWeek1_0_lblStartTime_0, #scheduler_aptsBlock_WorkWeek1_0_lblEndTime_0, #scheduler_aptsBlock_WorkWeek1_0_lblHosts_0 {
+		font-weight: normal !important;
+	}
+	
+	#scheduler_aptsBlock_WorkWeek1_0_lblTitle_0 {
+  		/*color: var(--primaryAccent);*/
+ 		font-weight: bold !important;
+	}
+	
+	#scheduler_aptsBlock_WorkWeek1_0_lblLocation_0 {
+		font-weight: lighter !important;
+	}
+	
+				/*the hovering*/
+	
+	/*#scheduler_aptsBlock_WorkWeek1_0_appointmentDiv_0:hover, #scheduler_aptsBlock_WorkWeek1_0_appointmentDiv_0:hover td {
+  		background-color: var(--primaryAccent) !important;
+		color: var(--accentText) !important;
+	}*/
+	
+	#scheduler_aptsBlock_WorkWeek1_0_appointmentDiv_0:hover .dxscAppointmentInnerBorders {
+		background-color: var(--primaryAccent) !important;
+	}
+	
+	.dxscApt:hover {
+		border-color: var(--primaryAccent) !important;
+	}
+	
+	
+			/* calendar popup*/
+	
+	#scheduler_viewNavigatorBlock_ctl00_calendarPopupDiv {
+		border: 0px solid var(--secondaryAccent);
+  		border-radius: 4px;
+		overflow: hidden;
+		filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
+	}
+	
+	.dxeCalendar {
+		background-color: var(--secondaryBG);
+		border-radius: 0px;
+		border: 0px;
+	}
+	
+	
+	.dxeCalendarHeader {
+		padding: 7px;
+		background-color: var(--secondaryBG);
+		border: 0px;
+	}
+	
+	.dxEditors_edtCalendarNextMonth, .dxEditors_edtCalendarNextYear, .dxEditors_edtCalendarPrevMonth, .dxEditors_edtCalendarPrevYear {
+		filter: var(--iconDefault);
+		height: 16px;
+		width: 16px;
+	}
+	
+
+	
+	.dxEditors_edtCalendarNextMonth {
+		background: url(https://dystopianserenity.github.io/LevisOverhaul/simple-arrow-right.png) no-repeat center;
+		background-size: 20px;
+	}
+	
+	.dxEditors_edtCalendarNextYear {
+		background: url(https://dystopianserenity.github.io/LevisOverhaul/arrow-right.png) no-repeat left;	
+		background-size: 20px;
+	}
+	
+	.dxEditors_edtCalendarPrevMonth {
+		background: url(https://dystopianserenity.github.io/LevisOverhaul/simple-arrow-right.png) no-repeat left;
+		background-size: 20px;
+		transform: scaleX(-1);
+	}
+	
+	.dxEditors_edtCalendarPrevYear {
+		background: url(https://dystopianserenity.github.io/LevisOverhaul/arrow-right.png) no-repeat left;	
+		background-size: 20px;
+		transform: scaleX(-1);
+
+	}
+	
+	.dxeCalendarHeader table tbody tr td div {
+		width: 0px !important;
+		
+	}	
+	
+	.dxe {
+		height: 30px;
+		width: 30px;
+	}
+	
+	.dxe:hover {
+		background-color: var(--primaryAccent);
+		border-radius: 4px;
+		color: var(--accentText)
+	}
+	
+	.dxe:hover .dxEditors_edtCalendarNextMonth, .dxe:hover .dxEditors_edtCalendarNextYear, .dxe:hover .dxEditors_edtCalendarPrevMonth, .dxe:hover .dxEditors_edtCalendarPrevYear {
+		filter: var(--iconHover);
+	}
+	
+	#scheduler_viewNavigatorBlock_ctl00_gotodateCalendar_TC {
+		width: 60px !important;
+		height: 30px;
+	}
+	
+	#scheduler_viewNavigatorBlock_ctl00_gotodateCalendar_T {
+		width: 120px;
+		height: 30px;
+		vertical-align: middle;
+		line-height: 30px;
+	}
+	
+	#scheduler_viewNavigatorBlock_ctl00_calendarPopupDiv {
+		width: max-content;
+	}
+	
+	
+	.dxeCalendarFooter {
+		border-top: 0;
+		background-color: var(--secondaryBG)
+	}
+	
+	.dxeCalendarFooter > table:first-child {
+		border-left-width: 66px;
+		border-left-style: solid;
+		border-color: var(--secondaryBG);
+	}
+	
+	.dxeCalendarButton {
+		background: var(--tertiaryBG);
+		border-radius: 4px;
+		border: 0;
+		width: 100px !important;
+	}
+	
+	.dxbebt {
+		width: 100% !important;
+	}
+	
+	.dxeCalendarButton:hover {
+		background: var(--primaryAccent);
+	}
+	
+	.dxeCalendarButton:hover td.dx {
+		color: var(--accentText)
+	}
+	
+	.dxeCalendarSelected {
+		color: var(--accentText);
+		background-color: var(--primaryAccent);
+		border-radius: 4px;
+	}
+	
+	.dxeCalendarDay:hover {
+		color: var(--accentText);
+		background-color: var(--primaryAccent);
+		border-radius: 4px;
+	}
+	
+	.dxeCalendarToday {
+		border-radius: 4px;
+		border-color: var(--primaryAccent);
+	}
+	
+	.dxeCalendarWeekend {
+		color: var(--primaryAccent);
+	}
+	
+	.dxeCalendarOtherMonth {
+		color: var(--tertiaryBG);
+	}
+	
+			/*details popup*/
+	
+	.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-draggable.ui-resizable {
+		border: none;
+		border-radius: 10px;
+		padding: 7px;
+  		background: var(--mainBG);
+		filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
+	}
+	
+	.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-draggable.ui-resizable div:first-child {
+		border-radius: 4px;
+		padding: 4px 10px !important;
+	}
+	
+	.ui-dialog .ui-dialog-content {
+		background: var(--mainBG)
+	}
+	
+	.ui-dialog-title-details {
+		margin: 3px;
+	}
+	
+	.ui-dialog .ui-dialog-title{
+		margin: 3px;
+	}
+	
+	.ui-dialog-titlebar-close.ui-corner-all.ui-state-hover {
+		border: 1px solid var(--primaryAccent) !important;
+		color: inherit !important; 
+		background: var(--primaryAccent) !important;
+	}
+	
+	.ui-state-hover .ui-icon.ui-icon-closethick, .ui-dialog-titlebar .ui-icon {
+		background: url(https://dystopianserenity.github.io/LevisOverhaul/whitePlus.png) center no-repeat;
+		background-size: 16px;
+		image-rendering: crisp-edges;
+		transform: rotate(45deg);
+		margin: 0px !important;
+	}
+	
+	.ui-dialog .ui-dialog-titlebar-close {
+		width: 20px;
+		height: 20px;
+		background-color: var(--secondaryAccent);
+		margin: -11px 2px 0 0;
+	}
+	
+	.ui-icon {
+		width: 20px;
+		height: 20px;
+	}
+	#lblAppointmentType {
+		padding-bottom: 0 !important;
+	}
+	
+	#pnlAppointmentDetail {
+		border-radius: 4px;
+		background-color: var(--secondaryBG) !important;
+	}
+	
+	.languageIcon {
+		border-radius: 0px;
+	}
+	
+			/*context menu*/
+
+	.dxmSubMenu {
+		border:0;
+		border-radius: 4px;
+		overflow: hidden;
+		font-family:  "Segoe UI", Tahoma, sans-serif;
+		background-color: var(--mainBG);
+		padding: 0;
+		filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
+	}
+	
+	#scheduler_viewMenuBlock_SMVIEW_DXMST_ > tbody > tr > td:nth-child(2), #scheduler_viewMenuBlock_SMVIEW_DXMST_ > tbody > tr:nth-child(2) > td {
+		background: none !important;
+	}
+	
+	.dxmSubMenuGutter{
+		background: var(--tertiaryBG);
+		padding-left: 6px;
+	}
+	
+	.dxmSubMenuItemHoverWithPopOutImage, .dxmSubMenuItemHoverWithImageWithPopOutImage{
+		padding: 4px 6px 5px 3px;
+		border: 0;
+		background-color: var(--primaryAccent);
+		color: var(--accentText);
+	}
+	
+	.dxmSubMenuItemHoverWithImage {
+		padding: 4px 19px 5px 3px;
+		border: 0;
+		background-color: var(--primaryAccent);
+		color: var(--accentText);
+	}
+	
+	/*Kalendar*/
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_lblExtendedSearch {
+		color: var(--accentText);
+	}
+	
+	.featureTitle{
+		border: 0px;
+		background: none;	
+	}
+	
+	.featureText, table.stretchWidth.smallPaddingLeft.smallPaddingRight {
+		background: none !important;
+	}
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_panelSearchArea {
+		/*border-radius: 10px 10px 0 0;*/
+		margin-bottom: 12px;
+	}
+	
+	/*Date Picker*/
+	
+	.ui-datepicker {
+		border:0;
+		border-radius: 4px;
+		overflow: hidden;
+		font-family:  "Segoe UI", Tahoma, sans-serif;
+		background-color: var(--mainBG);
+		padding: 4px;
+		filter: drop-shadow(0px 5px 5px rgba(0, 0, 0, 0.25));
+	}
+	
+	 .ui-widget-header{
+		background-color: var(--mainBG);
+	}
+	
+	.ui-datepicker .ui-datepicker-header {
+		padding: 1px;	
+	}
+	
+	.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+		height: 30px;
+		width: 30px;
+		background: none;
+		color: var(--mainText);
+		filter: var(--iconDefault);
+	}
+	
+	.ui-datepicker-prev .ui-icon, .ui-datepicker-next .ui-icon {
+		background: url(https://dystopianserenity.github.io/LevisOverhaul/simple-arrow-right.png) center no-repeat;
+		background-size: 20px;
+        filter: var(--iconFilter);
+		height: 20px;
+		width: 20px;
+		margin: -10px !important;
+	}
+	
+	.ui-datepicker .ui-datepicker-prev span {
+		transform: scaleX(-1);
+	}
+	
+	.ui-datepicker-calendar .ui-state-default, .ui-widget-content .ui-state-default {
+		border: 0px;
+		color: var(--primaryAccent);
+		border-radius: 4px;
+		padding: 5px;
+		background: none;
+	}
+	
+	.ui-widget-content .ui-state-default:hover {
+		color: var(--accentText);
+		background: var(--primaryAccent);
+	}
+	
+	.ui-state-highlight, .ui-widget-content .ui-state-highlight{
+		background: none;
+	}
+	
+	.ui-datepicker-header .ui-state-hover, .ui-datepicker-header .ui-widget-content .ui-state-hover, .ui-datepicker-header .ui-widget-header .ui-state-hover {
+		border: 0;
+		background: var(--primaryAccent);
+		color: var(--accentText);
+		top: 5px;
+		right: 5px;
+		filter: var(--iconHover);
+	}
+	
+	.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-prev-hover {
+		left: 5px;
+	}
+	
+	.ui-priority-secondary, .ui-widget-content .ui-priority-secondary {
+		opacity: 1;
+	}
+    /*Gebäudeplan*/
+    
+    .searchPaneBorder {
+        border:0px solid var(--primaryAccent);    /*turn up radius for border*/
+        border-radius: 10px;
+        background-color: var(--secondaryBG);
+        overflow: hidden;
+    }
+    
+    .searchPaneBack {
+        background-color: var(--primaryAccent);
+        padding-top:5px;
+        padding-bottom: 10px;
+        font-weight: bold;
+    }
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_tblTop tbody tr td:first-Child, .searchPaneTop tbody tr td:first-Child{
+		display: none;
+	}
+	
+	.searchPaneTop{
+		width:721px;
+	}
+    
+    .dxscTimelineCellBody {
+        background-color: var(--secondaryBG) !important;
+        border-color: var(--secondaryAccent) !important;
+        border: 1px;
+        border-style: none dashed;
+    }
+    
+    .searchPaneBottomPanel {
+        padding: 5px;
+        padding-right: 5px;
+        background: var(--secondaryBG);
+        border-top: 0px dotted #444d53;
+		color: var(--secondaryAccent);
+    }
+	
+
+    
+    /*PDF download und Notenstatistik*/
+    
+    .taskfield {
+        background-color: var(--secondaryBG) !important;
+        background-image: url(https://dystopianserenity.github.io/LevisOverhaul/pdf%20icon.png) !important;
+        background-size: 50px;
+        background-position: left center;
+        filter: var(--iconFilter);
+        border: 3px solid var(--secondaryBG);
+        border-radius: 10px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+		padding-left: 23px;
+		color: var(--mainText)
+    }
+	
+	
+    
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_selection_gvCurriculum {
+		border-radius: 10px;
+	}
+	
+	tr td.smallPaddingLeft {
+		padding-left: 20px !important;
+		color: var(--mainText);
+	}
+	
+    /*Noteninformation*/
+    
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_radioList {
+		padding-left:8px;
+	}
+    #ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_pnlInformation {
+        border-top: 0px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+    
+    #ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_pnlGrades {
+        border-bottom: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    
+    .searchPaneStatus {
+        border-bottom: 2px dashed var(--primaryAccent);
+        border-top: 0px solid var(--primaryAccent);
+        background-color: var(--secondaryBG);
+        padding:10px;
+        padding-bottom: 10px
+    }
+    
+    .center, .Center {
+        padding: 10px;
+        width: auto !important;
+		text-align: center !important;
+    }
+    
+	th {
+		border-bottom: 3px solid var(--secondaryBG);
+	}
+	
+	.searchPaneBack.ui-corner-bl.center {
+		width: 0px !important;
+		
+	}
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_LinkButton1:hover {
+		color:white;
+		text-decoration: underline;
+	}
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_cellSubjectType {
+		background-color: #D2D2D2 !important;
+	}
+	
+	/*Notification Eingang*/
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_gvNotifications .searchPaneListRowStyle td:first-child, #ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_gvNotifications .searchPaneListRowStyleAlt td:first-child {
+		background: url(https://dystopianserenity.github.io/LevisOverhaul/mail%20icon%20red.png) center no-repeat;
+		background-size: 16px;
+        filter: var(--iconFilter);
+	}
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_gvNotifications .searchPaneListRowStyle td img, #ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_gvNotifications .searchPaneListRowStyleAlt td img {
+		display:none;
+	}
+	
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_gvNotifications .searchPaneListRowStyle td:nth-child(3), #ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_gvNotifications .searchPaneListRowStyleAlt td:nth-child(3) {
+		background: url(https://dystopianserenity.github.io/LevisOverhaul/austria%20flag.png) center no-repeat;
+		background-size: 16px;
+		filter: var(--iconFilter);
+	}
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_btnRefresh {
+		background-color: #fff;
+		color: var(--primaryAccent);
+	}
+	
+	.searchPaneListRowStyle td, .searchPaneListRowStyleAlt td {
+		padding: 6px 5px;
+	}
+	
+	.imgReport {
+		opacity: 0% !important;
+	}
+	
+	.searchPaneListRowStyle td:nth-child(5), .searchPaneListRowStyleAlt td:nth-child(5) {
+		background: url(https://dystopianserenity.github.io/LevisOverhaul/open%20icon%20thick.png) center no-repeat;
+		background-size: 16px;
+        filter: var(--iconFilter);
+	}
+	
+	/*Service Bereich*/
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_gvDownloads a{
+		background: url(https://dystopianserenity.github.io/LevisOverhaul/open%20icon%20thick.png) no-repeat;
+  		background-size: 16px;
+        filter: var(--iconFilter);
+	}
+ 
+    /*Evaluierung Offene Evaluierungen*/
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_pnlEvaluationOverview div:nth-child(2) {
+		padding: 20px 25px !important;
+		color: var(--mainText);
+	}
+    
+    /*Evaluierung Kennzahlen*/
+    
+    .hideForPrinting {
+        background: var(--secondaryBG);
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom:15px;
+    }
+    
+    .hideForPrinting .inlineBlock {
+        padding: 0px;
+    }
+    
+    select{
+        border-radius: 8px;
+        border:3px solid var(--mainBG) !important;
+		background: var(--mainBG) !important;
+        color: var(--mainText);
+        padding: 7px !important;
+    }
+    
+    select:hover {
+        border:3px solid var(--primaryAccent) !important;
+    }
+    
+    select:focus{
+        border:3px solid var(--primaryAccent) !important;
+    }
+	
+	select>option {
+		border:0px;
+	}
+	
+    
+    #contentright .tab .ajax__tab_body{
+        border: 0px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: var(--secondaryBG) !important;
+    }
+    
+    .ajax__tab_panel img{
+        border-radius: 10px;
+        margin-top: 20px;
+        border: 0px solid var(--secondaryAccent) !important;              /*turn up for image borders*/
+    }
+    
+    #ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_tabResults_tabIndicators_divIndicators .smallPaddingLeft{
+        margin-left: 25px;
+        margin-right:25px;
+        margin-top: 10px;
+        color: var(--accentText);
+    }
+    
+    #ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_tabResults_tabIndicators_tblSemesterIndicator {
+        color: var(--accentText);
+    }
+    
+    #ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_tabResults_tabIndicators_divIndicators div.smallPaddingLeft.smallPaddingTop {
+        color: var(--mainText);
+    }
+    
+    #ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_tabResults_tabIndicators_divIndicators .searchPaneBottomPanel{
+        margin-left: 25px;
+        margin-right:25px;
+        margin-bottom: 10px;
+
+    }
+    
+    #ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_tabResults_tabIndicators_divIndicators table{
+        padding: 10px;
+        background-color: var(--secondaryAccent) !important;
+        color: var(--secondaryBG) !important;
+    }
+    
+    #contentright .tab .ajax__tab_active .ajax__tab_outer {
+        background: var(--primaryAccent) !important;
+        border-radius: 10px 10px 0 0;
+
+    }
+    
+    #contentright .tab .ajax__tab_outer{
+        background: transparent;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    #contentright .tab .ajax__tab_active .ajax__tab_inner, #contentright .tab .ajax__tab_inner{
+        background: #c0041800 !important;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    #contentright .tab .ajax__tab_active .ajax__tab_tab{
+        border: 0px;
+        background: var(--primaryAccent);
+        border-radius: 10px 10px 0 0;
+    }
+    
+    #contentright .tab .ajax__tab_tab{
+        border: 0px;
+        background: var(--secondaryBG);
+        border-radius: 10px 10px 0 0;
+    }
+    
+    #contentright .tab .ajax__tab_hover .ajax__tab_outer, #contentright .tab .ajax__tab_hover .ajax__tab_inner, #contentright .tab .ajax__tab_hover .ajax__tab_tab{
+        color:#fff !important;
+        background: var(--primaryAccent) !important;
+    }
+	
+	.span-8 {
+		margin-left: 22px;
+	}
+	
+	.span-1 {
+		width: 0;
+	}
+    
+    /*Profile Settings*/
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_tabSettings_pnlBasicSettings td {
+		display: revert;
+	}
+	
+	
+    #ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_tabSettings_pnlBasicSettings hr{
+        border-top: transparent;
+    }
+   
+    #ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_tabSettings_pnlBasicSettings div{
+        margin: 10px 20px !important;
+    }
+    
+     #ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_tabSettings_pnlBasicSettings_imgProfile{
+        margin: 20px;
+    }
+    
+    #ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_tabSettings_pnlBasicSettings .notice{
+        background: #c6d9ea;
+    }
+    
+	
+	/*Startbereich Events*/
+	
+	.portlet {
+		background: var(--secondaryBG);
+		border-radius: 10px;
+		border-width: 0px;
+		padding: 7px;
+		margin: 0 2px 12px 0;
+	}
+	
+	.portlet-content {
+		padding: 0;
+		margin-bottom: 20px;
+		margin-top: 10px;
+	}
+	
+	.ui-widget-footer {
+		padding: 10px;
+		margin-top: 5px;
+  		font-weight: bold;
+		border-radius: 8px;
+        background-color: var(--tertiaryBG);
+	}
+    
+	.portlet-header .ui-icon {
+	 	border-radius: 3px;
+	  	cursor: pointer;
+		image-rendering: optimizespeed;
+		width: 20px;
+		height: 20px;
+        background-color: var(--tertiaryBG);
+	}
+    
+    .ui-date-pcierk .ui-widget-header {
+        background-color: var(--secondaryBG)
+    }
+	
+	.ui-icon-minusthick{
+		background-image: url(https://dystopianserenity.github.io/LevisOverhaul/whiteMinus.png) !important;
+		background-size: 12px;
+		background-position: center;
+	}
+	
+	.ui-icon-plusthick{
+		background-image: url(https://dystopianserenity.github.io/LevisOverhaul/whitePlus.png) !important;
+		background-size: 12px;
+		background-position: center;
+	}
+	
+	#ctl00_ctl00_MainArea_MainArea_myExams_gvExams {
+		width: 100% !important;
+	}
+	
+	
+	.searchPaneListRowStyle.infoCard, .searchPaneListRowStyleAlt.infoCard {
+		border-radius: 10px;
+		border: 0px;
+		box-shadow: 0 0 0;
+		background: var(--tertiaryBG);
+		padding: 3px;
+	}
+	
+	.searchPaneListRowStyle.infoCard td, .searchPaneListRowStyleAlt.infoCard td{
+		padding: 10px;
+  		cursor: default;
+	}
+	
+	.searchPaneListRowStyle.infoCard td:nth-child(2), .searchPaneListRowStyleAlt.infoCard td:nth-child(2) {
+		padding-right: 15px;
+		padding-left: 5px;
+		
+	}
+	
+	.searchPaneListRowStyle.infoCard td:nth-child(2) div:nth-child(2) span:first-child, .searchPaneListRowStyleAlt.infoCard td:nth-child(2) div:nth-child(2) span:first-child {
+		color: var(--primaryAccent) !important;
+	}
+	
+	#ctl00_ctl00_MainArea_MainArea_pnlWidgets div {
+		margin-left: 0px;
+	}
+    
+    tbody tr td {
+        color: var(--mainText);
+    }
+    
+    .ui-widget-footer a:hover, a:focus {
+        color: var(--primaryAccent);
+    }
+	
+	/*Rücklaufquoten*/
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_gvDegProg tbody tr th {
+		padding:10px;
+	}
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_gvDegProg {
+		width:132px;
+	}
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_gvDegProgInfos {
+		width:160px;
+	}
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_gvDegProgStatistics {
+		width: 180px;
+	}
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_gvDegProgPercentage {
+		width: 240px;
+	}
+	
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_btnLoadStatistics {
+		background-color: var(--mainBG);
+		color: var(--primaryAccent);
+	  	height: 37px;
+		margin-right: 10px;
+	}
+	
+	.searchPaneLine {
+		border: 0px;
+		height: 12px
+	}
+	
+	#ctl00_ctl00_ctl00_MainArea_MainArea_ContentArea_chDegProg_chDegProg {
+		height: auto;
+  		width: 721px;
+		border-radius: 0px;
+	}
+	
+	/*Footer Text*/
+	
+	.footerMenuItem, .footerMenuItem:hover {
+		color: var(--lowContrastText) !important;
+	}
+	
+	#footer li a {
+		color: var(--tertiaryBG)
+	}
+	
+	#footer li a:hover {
+		color: var(--primaryAccent)
+	}
+}
